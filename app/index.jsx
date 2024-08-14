@@ -8,9 +8,10 @@ export default function App() {
       <Text className="text-3xl font-pbold">Welcome</Text>
       <Text className="text-2xl font-psemibold">to</Text>
       <Text className="text-3xl font-pbold text-[#6A4DF6] mb-6">Rentconnect</Text>
+      <Text className="text-xs font-pmedium text-center ml-4 mr-4">A place where you can seamlessly connect with your ideal rental property and list property.</Text>
       
       <Image
-        source={require('./../assets/images/welcome.png')} // Ensure the image is available in your project
+        source={require('./../assets/images/welcome.png')}
         style={{ width: 200, height: 200, marginBottom: 30 }}
         resizeMode="contain"
       />
