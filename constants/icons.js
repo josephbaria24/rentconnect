@@ -13,6 +13,7 @@ import eye from "../assets/icons/eye.png";
 import play from "../assets/icons/play.png";
 import pie from "../assets/icons/pie.png";
 import message from "../assets/icons/message.png";
+import google from "../assets/icons/google.png";
 
 export default {
   play,
@@ -30,4 +31,5 @@ export default {
   pie,
   message,
   arrow,
+  google,
 };

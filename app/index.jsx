@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { Text, View, Image, TouchableOpacity } from 'react-native';
 import { Redirect, router, Link } from 'expo-router';
-import CustomButton from '../components/customButton';
+import CustomButton from '../components/CustomButton';
 
 
 export default function App() {
@@ -22,14 +22,7 @@ export default function App() {
         <Link href="/trends" style={{ color: 'white', fontSize: 18, }}>Discover</Link>
       </TouchableOpacity>
 
-      <View style={{ position: 'absolute', bottom: 30 }}>
-        <Image
-          source={require('./../assets/icons/arrow.png')} // Add the bottom icon to your project
-          style={{ width: 40, height: 40 }}
-          resizeMode="contain"
-          handlePress={() => router.push('/sign-in')}
-        />
-      </View>
+      <Text className="text-2xs font-psemibold p-3">or</Text>
       <CustomButton
         title="Continue with email"
         handlePress={() => router.push('/sign-in')}

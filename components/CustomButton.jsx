@@ -1,17 +1,38 @@
-import { TouchableOpacity, Text } from 'react-native'
-import React from 'react'
+import { TouchableOpacity, Text, View, Image } from 'react-native';
+import React from 'react';
 
 const CustomButton = ({ title, handlePress, containerStyles, textStyles, isLoading }) => {
-    return (
-      <TouchableOpacity 
-        onPress={handlePress}
-        activeOpacity={0.7}
-        className= {`bg-secondary rounded-xl min-h-[62px] justify-center items-center ${containerStyles} ${isLoading ? 'opacity-50' : ''}`}
-        disabled={isLoading}
-      >
-        <Text className="textprimary font-psemibold text-lg">CustomButton</Text>
-  
-      </TouchableOpacity>
-    )
-  }
-  export default CustomButton
+  return (
+    <TouchableOpacity 
+      onPress={handlePress}
+      activeOpacity={0.7}
+      style={{
+
+        backgroundColor: '#e62267',
+        borderRadius: 10,       // Same as rounded-xl
+        height: 40,
+        minHeight: 40,
+        width: "99%",
+        minWidth: 200,
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'row',   // To position icon and text in a row
+        ...containerStyles,
+        opacity: isLoading ? 0.5 : 1,
+      }}
+      disabled={isLoading}
+    >
+     
+      <Text style={{
+        color: '#ffff',      // Adjust the text color
+        fontFamily: 'Poppins-SemiBold', // Ensure to use correct font family
+        fontSize: 12,           // Adjust text size as needed
+        ...textStyles,
+      }}>
+        {title}
+      </Text>
+    </TouchableOpacity>
+  );
+};
+
+export default CustomButton;
