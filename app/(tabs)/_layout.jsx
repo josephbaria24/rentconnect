@@ -1,6 +1,8 @@
 import { View, Text, Image, TouchableOpacity } from 'react-native'
 import { Tabs, Redirect } from 'expo-router'
 import { icons } from '../../constants';
+import { useEffect } from 'react';
+
 
 const TabIcon = ({ icon, color, name, focused, isSearchTab }) => {
     return (
