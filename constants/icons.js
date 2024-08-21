@@ -14,8 +14,14 @@ import play from "../assets/icons/play.png";
 import pie from "../assets/icons/pie.png";
 import message from "../assets/icons/message.png";
 import google from "../assets/icons/google.png";
+import settings from "../assets/icons/settings.png";
+import listing from "../assets/icons/listing.png";
+import info from "../assets/icons/info.png";
 
 export default {
+  settings,
+  listing,
+  info,
   play,
   bookmark,
   home,

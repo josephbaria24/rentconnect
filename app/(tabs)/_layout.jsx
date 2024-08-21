@@ -9,6 +9,7 @@ const TabIcon = ({ icon, color, name, focused, isSearchTab }) => {
       <View 
         className={`items-center justify-center ${isSearchTab ? 'p-3 rounded-full bg-black' : 'gap-2'}`}
         style={isSearchTab ? {
+          backgroundColor: isSearchTab && focused ? '#3E06DD' : (isSearchTab ? 'gray' : 'transparent'),
           elevation: 5, // for Android
           shadowColor: '#000', // for iOS
           shadowOffset: { width: 0, height: 2 }, // for iOS
@@ -20,7 +21,7 @@ const TabIcon = ({ icon, color, name, focused, isSearchTab }) => {
           source={icon}
           resizeMode="contain"
           tintColor={isSearchTab ? 'white' : color}
-          className={`${isSearchTab ? 'w-8 h-5' : 'w-6 h-6'}`} // Adjust icon size for the search tab
+          className={`${isSearchTab ? 'w-8 h-9' : 'w-6 h-6'}`} // Adjust icon size for the search tab
         />
         {!isSearchTab && (
           <Text style={{ fontSize: 10, fontFamily: focused ? 'Poppins-SemiBold' : 'Poppins-Regular' }}>
@@ -47,16 +48,17 @@ const TabsLayout = () => {
             }}
         >
             <Tabs.Screen 
-                name="trends"
+                name="home"
                 options={{
-                    title: 'Trends',
+                    title: 'Home',
                     headerShown: false,
                     tabBarIcon: ({ color, focused }) => (
                         <TabIcon
-                            icon={icons.pie}
+                            icon={icons.home}
                             color={color}
-                            name="Trends"
+                            name="Home"
                             focused={focused}
+                            
                         />
                     )
                 }}
@@ -83,10 +85,11 @@ const TabsLayout = () => {
             headerShown: false,
             tabBarIcon: ({ color, focused }) => (
               <TabIcon
-                icon={icons.search}
+                icon={icons.pie}
                 color={color}
                 name="Search"
                 focused={focused}
+
                 isSearchTab={true} // Pass isSearchTab prop to apply special styles
               />
             ),
