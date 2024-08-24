@@ -1,12 +1,27 @@
 import React from 'react'
-import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, Text, Image, StyleSheet, TouchableOpacity, Alert } from 'react-native'
 import { icons } from '../../constants'; // Assuming your icons are imported from a constants file
+import { useRouter } from 'expo-router'; // If using Expo Router
+import { logoutUser } from '../../lib/appwrite'; // Replace with your logout function
 
 const Profile = () => {
+  const router = useRouter();
+
+  // Function to handle the logout process
+  const handleLogout = async () => {
+    try {
+      await logoutUser(); // Perform the logout operation (customize based on your auth setup)
+      Alert.alert('Logged Out', 'You have been successfully logged out.');
+      router.replace('/sign-in'); // Redirect to the login screen (adjust the path as needed)
+    } catch (error) {
+      Alert.alert('Error', 'Failed to log out. Please try again.');
+    }
+  };
+
   return (
     <View style={styles.container}>
       <Header />
-      <Menu />
+      <Menu onLogout={handleLogout} />
     </View>
   )
 }
@@ -23,21 +38,21 @@ const Header = () => {
   )
 }
 
-const Menu = () => {
+const Menu = ({ onLogout }) => {
   return (
     <View style={styles.menu}>
       <MenuItem text="Personal Information" icon={icons.profile} />
       <MenuItem text="Account" icon={icons.settings} />
       <MenuItem text="Listing" icon={icons.listing} />
       <MenuItem text="About" icon={icons.info} />
-      <MenuItem text="Log out" icon={icons.logout} />
+      <MenuItem text="Log out" icon={icons.logout} onPress={onLogout} />
     </View>
   )
 }
 
-const MenuItem = ({ text, icon }) => {
+const MenuItem = ({ text, icon, onPress }) => {
   return (
-    <TouchableOpacity style={styles.menuItem}>
+    <TouchableOpacity style={styles.menuItem} onPress={onPress}>
       <Image source={icon} style={styles.icon} />
       <Text style={styles.menuText}>{text}</Text>
     </TouchableOpacity>
