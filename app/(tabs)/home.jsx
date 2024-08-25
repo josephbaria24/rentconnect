@@ -6,6 +6,7 @@ import Listing from '../../components/Listing'
 import { getAllPosts } from '../../lib/appwrite'
 import useAppwrite from '../../lib/useAppwrite'
 import PropertiesPhoto from '../../components/PropertiesPhoto'
+import EmptyState from '../../components/EmptyState'
 
 
 const Home = () => {
@@ -39,15 +40,24 @@ const Home = () => {
               <Text className="text-lg font-psemibold">
                 Joseph
               </Text>
-              
-
+            
               <SearchInput />
 
-
+          
               
           </View>
+          
         )}
+        
         refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
+
+        
+        ListEmptyComponent={() => {
+          <EmptyState 
+            title="No Listing Found"
+            subtitle="Stay Tuned! or Start Your Listing Now!"
+          />
+        }}
       />
     </SafeAreaView>
   )

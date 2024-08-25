@@ -5,7 +5,7 @@ const Listing = ({ posts }) => {
   return (
     <FlatList 
      data={posts}
-     keyExtractor={(item) => item.id.toString()}
+     keyExtractor={(item) => item.$id}
      renderItem={({ item }) => (
         <Text className="text-3xl">{item.id}</Text>
      )}
@@ -15,4 +15,3 @@ const Listing = ({ posts }) => {
 
 export default Listing
 
-const styles = StyleSheet.create({})
